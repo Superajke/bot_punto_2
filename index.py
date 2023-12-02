@@ -87,6 +87,7 @@ for i in range(1, 11):
     xpath = f'/html/body/div[3]/div[1]/div[2]/div[4]/div/div/div/div[2]/div[7]/div/div[1]/div[5]/div[{i}]/div/div/div[2]/div/div[1]/div/p[1]/span[2]' # Se crea el XPATH para obtener el precio el cual se iterará en el div de los paquetes
     price = bot.find_element(By.XPATH, xpath) # Get the package price
     print("Packet "+str(i)+" price: "+price.text) # Print the package price
+time.sleep(2)
 
 # Access advanced options
 advanced_options = bot.find_element(By.XPATH, "/html/body/div[3]/div[1]/div[2]/div[4]/div/div/div/div[1]/div[1]/div/div[6]/a")
