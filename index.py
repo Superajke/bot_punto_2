@@ -79,13 +79,13 @@ time.sleep(1)
 Emergent = bot.window_handles[1] # Get the new window
 bot.switch_to.window(Emergent) # Switch to the new window
 
-# The bot will wait 30 seconds for the page to load (adjust the time if necessary)
-WebDriverWait(bot, 30).until(EC.presence_of_element_located((By.XPATH, '/html/body/div[3]/div[1]/div[2]/div[4]/div/div/div/div[2]/div[7]/div/div[1]/div[5]/div[1]/div/div/div[2]/div/div[1]/div/p[1]/span[2]'))) 
+# The bot will wait 60 seconds for the page to load (adjust the time if necessary)
+WebDriverWait(bot, 60).until(EC.presence_of_element_located((By.XPATH, '/html/body/div[3]/div[1]/div[2]/div[4]/div/div/div/div[2]/div[7]/div/div[1]/div[5]/div[1]/div/div/div[2]/div/div[1]/div/p[1]/span[2]'))) 
 
 # Iterate over the first 10 package prices
 for i in range(1, 11):
-    xpath = f'/html/body/div[3]/div[1]/div[2]/div[4]/div/div/div/div[2]/div[7]/div/div[1]/div[5]/div[{i}]/div/div/div[2]/div/div[1]/div/p[1]/span[2]' # Se crea el XPATH para obtener el precio el cual se iterará en el div de los paquetes
-    price = bot.find_element(By.XPATH, xpath) # Get the package price
+    fullpath = f'/html/body/div[3]/div[1]/div[2]/div[4]/div/div/div/div[2]/div[7]/div/div[1]/div[5]/div[{i}]/div/div/div[2]/div/div[1]/div/p[1]/span[2]' # Se crea el XPATH para obtener el precio el cual se iterará en el div de los paquetes
+    price = bot.find_element(By.XPATH, fullpath) # Get the package price
     print("Packet "+str(i)+" price: "+price.text) # Print the package price
 time.sleep(2)
 
@@ -107,8 +107,8 @@ select_airline_accept = bot.find_element(By.XPATH, "/html/body/div[3]/div[1]/div
 select_airline_accept.click() # Click on the accept button
 time.sleep(1)
 
-# The bot will wait 30 seconds for the page to load (adjust the time if necessary)
-WebDriverWait(bot, 25).until(EC.presence_of_element_located((By.XPATH, '/html/body/div[3]/div[1]/div[2]/div[4]/div/div/div/div[2]/div[7]/div/div[1]/div[5]/div[1]/div/div/div[2]/div/div[1]/div/p[1]/span[2]')))
+# The bot will wait 60 seconds for the page to load (adjust the time if necessary)
+WebDriverWait(bot, 60).until(EC.presence_of_element_located((By.XPATH, '/html/body/div[3]/div[1]/div[2]/div[4]/div/div/div/div[2]/div[7]/div/div[1]/div[5]/div[1]/div/div/div[2]/div/div[1]/div/p[1]/span[2]')))
 
 # Access the "Contact Us" section
 contact_us = bot.find_element(By.XPATH, "/html/body/div[3]/div[1]/div[2]/div[5]/footer/div[2]/div/div/div[1]/div/p/a")
